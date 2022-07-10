@@ -8,6 +8,8 @@ public class SimpleApp {
         String a="Glory";
         String b= "to";
         String c= "Ukraine";
+
+
 System.out.println(a+SEPARATOR_SPACE+b+SEPARATOR_SPACE+c);
 
     }

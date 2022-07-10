@@ -1,4 +1,5 @@
 package plcybertrainees;
 
-public class Kalkulator {
+public class Kalk {
+
 }
