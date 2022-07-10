@@ -10,28 +10,30 @@ public final class Calculator{
         System.out.print("Enter second number");
         double num2=sc.nextDouble();
         System.out.print("Choose operator");
-        char oper=sc.next().charAt(0);
-        solve (num1,num2,oper);
+        char opr=sc.next().charAt(0);
+        solve (num1,num2,opr);
 
         double res = 0.0;
         return res;
     }
 
-    private static void solve(double num1, double num2, char oper) {
+    private static void solve(double num1, double num2, int opr) {
        double res=0.0;
-        if (oper=="+"){
+        if (opr=="+"){
              res=num1+num2;};
-        else;
-        if(oper=="-"){
+        else
+        if(opr=="-"){
             res=num1-num2;};
-        else;
-        if(oper=="*"){
+        else
+        if(opr=="*"){
              res=num1*num2;};
-        else;
-        if(oper=="/"){
+        else
+        if(opr=="/"){
             res=num1/num2;};
+        else
+            System.out.println("Choose correct operator!");
     }
-System.out.println("Your answer is - ""+ res);
+System.out.printIn("Your answer is - ""+ res);
         return res;
 
 
