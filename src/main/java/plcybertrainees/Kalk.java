@@ -2,26 +2,37 @@ package plcybertrainees;
 import java.util.Scanner;
 
 public class Kalk {
-    static double main(String... args) {
-        Scanner sc = new Scanner(System.in);
+    public static String SEPARATOR_SPACE= " ";
+
+    static void main(String... args) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Zmianna1?");
-        double zmianna1 = sc.nextDouble();
+        double zmianna1 = scanner.nextDouble();
         System.out.println("Zmianna2?");
-        double zmianna2 = sc.nextDouble();
-        System.out.println("Jaky operator?");
-        String operator = sc.next();
-        double resultat = 0.0;
-        if (operator "==" ' "+") {
-            resultat = zmianna1 + zmianna2;
-            if(operator '==' "-");
-            resultat=zmianna1-zmianna2;
-            if(operator == "/");
-            resultat=zmianna1/zmianna2;
-            else if(operator == "*");
-            resultat=zmianna1*zmianna2;
+        double zmianna2 = scanner.nextDouble();
+        System.out.println("Jaky operator -,+,/,*?");
+        char operator = scanner.next().charAt(0);
+        scanner.close();
+        double resultat;
 
-        };
+        switch (operator){
+            case'+':
+                resultat=zmianna1+zmianna2;
+                break;
+            case'-':
+                resultat=zmianna1+zmianna2;
+            case'/':
+                resultat=zmianna1/zmianna2;
+            case'*':
+                resultat=zmianna1*zmianna2;
+            default:
+                System.out.printf("Bląd!");
+                return;
+        }
+        System.out.println(zmianna1+SEPARATOR_SPACE+operator+SEPARATOR_SPACE+zmianna2+":"+resultat);
 
-        return resultat;
+
     }
+
+    public static String SEPARATOR_SPACE = " ";
 }

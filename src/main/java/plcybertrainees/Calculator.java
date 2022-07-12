@@ -13,7 +13,7 @@ public final class Calculator{
         char opr=sc.next().charAt(0);
         solve (num1,num2,opr);
 
-        double res = 0.0;
+        double res;
         return res;
     }
 
