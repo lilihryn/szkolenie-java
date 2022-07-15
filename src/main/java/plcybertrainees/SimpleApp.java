@@ -23,3 +23,4 @@ public class SimpleApp {
         System.out.println(modelPojazdu1.getNaped());
     }
 }
+

@@ -1,10 +1,10 @@
 package plcybertrainees.dziedziczenie;
 //exteds slowo kluczowe przy dziedziczeniu klas
 public class model extends pojazd{
-    private final String nazwa;
-    private final Integer przebieg;
-    private final Double pojemnoscSilnika;
-    private final Kolor kolor;
+    private String nazwa;
+    private  Integer przebieg;
+    private Double pojemnoscSilnika;
+    private Kolor kolor;
     //alt+enter//
 
     public model(){
@@ -50,4 +50,19 @@ public class model extends pojazd{
     public Kolor getKolor(){
         return kolor;
     }
+    public void setPrzebieg(final Integer przebieg) {
+        this.przebieg = przebieg;
+    }
+
+    public void setNazwa(final String nazwa){
+        this.nazwa=nazwa;
+        }
+    public void setPojemnoscSilnika(final Double pojemnoscSilnika){
+        this.pojemnoscSilnika=pojemnoscSilnika;
+    }
+    public void setKolor(final Kolor kolor){
+
+    this.kolor=kolor;
+    }
+// ctrl spacja-przegląd dostępnych zmiaannych
 }
