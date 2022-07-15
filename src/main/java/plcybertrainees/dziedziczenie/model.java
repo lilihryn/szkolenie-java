@@ -55,7 +55,7 @@ public class model extends pojazd{
     }
 
     public void setNazwa(final String nazwa){
-        this.nazwa=nazwa;
+            this.nazwa=nazwa;
         }
     public void setPojemnoscSilnika(final Double pojemnoscSilnika){
         this.pojemnoscSilnika=pojemnoscSilnika;
@@ -63,6 +63,38 @@ public class model extends pojazd{
     public void setKolor(final Kolor kolor){
 
     this.kolor=kolor;
+
     }
 // ctrl spacja-przegląd dostępnych zmiaannych
+    ////Settery - metody, któych zadaniem jest ustawianie
+    // informacji z paratemru metody do parametru klasy
+    //kolekcji zbiory dannych, są cztery rodzaji kolekcij; List,Set,Map,Queve
+    /*
+    1,2,3,4
+    List-1,2,3,4 kolejność zbioru dannych
+    Set-a) 1,2,3,4
+    b)3,4,1,2 etc- nie gwarantuje kolejnośći zbioru
+    Map przechowuje wartości jako klucz wartość
+    1<->1
+    2<->2
+    3<->3
+    4<->4
+    Queve 1,2,3,4, podobne do List LIFO LAST IN FIRST OUT Odczytowany od ostatniego do pierwszego albo
+    FIFO FIRST IN FIRST OUT normalna kolejka
+
+    Najpopularniejsze
+          ArrayList() nie przechowuje informacje o poprzednim i następnim rekordie
+          LinkedList() przechowuje informacje
+          <String> typ dannych które prechowuje lista
+          List<String>=new ArrayList<String>(); albo  =new ArrayList<>();
+          lista.add("pierwszy");->add() metoda dodająca wartości do listy
+          lista.add("drugi");
+          system.out.println(lista.get(1));
+
+
+    Set:
+         HashSet()-
+         TreeSet()-
+     */
+
 }

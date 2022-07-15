@@ -33,4 +33,17 @@ public class pojazd {
         return naped;
     }
     //gettery metody ktore pobieraja informacje z polklasy dla przetwarzania//
+
+
+    public void setMarka(String marka) {
+        this.marka = marka;
+    }
+
+    public void setRocznik(String rocznik) {
+        this.rocznik = rocznik;
+    }
+
+    public void setNaped(String naped) {
+        this.naped = naped;
+    }
 }
