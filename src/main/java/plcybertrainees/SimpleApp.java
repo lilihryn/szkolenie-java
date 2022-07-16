@@ -1,11 +1,14 @@
 package plcybertrainees;
 
+import groovyjarjarantlr4.v4.runtime.misc.Array2DHashSet;
 import plcybertrainees.dziedziczenie.Kolor;
 import plcybertrainees.dziedziczenie.model;
 import spotkanie.Petle;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 public class SimpleApp {
 
@@ -28,16 +31,31 @@ public class SimpleApp {
         modelPojazdu1.setNazwa("Passat");
         modelPojazdu1.setPrzebieg(1000);
 
-        List<String>strings= new ArrayList<String>();
+        List<String> strings = new ArrayList<String>();
         strings.add("pierwszy");
         strings.add("drugi");
         System.out.println(strings.get(1));
 
 
-        Petle petle=new Petle();
+        Petle petle = new Petle();
         petle.wyswietlenie1d0100();
+        List<Double> listaDouble = new ArrayList<>(Arrays.asList(
+                1.0,
+                2.0,
+                5.0,
+                10.0,
+                20.0
+        ));
+        listaDouble.add(30.0);
+        petle.dodawanieElementowlisty(listaDouble);
+
+        Set<Integer> wyswietlSet=new ArrayHashSet<>(
+        );
+        wyswietlSet.add(1);
 
 
+
+// Arrays.asList oczekuje zmianne double jak zadeklarowane w liscie
 /*instrukcja warunkowe:
      if- wybór na podstawie warunku typu boolean
      if(condition){
@@ -66,8 +84,20 @@ public class SimpleApp {
      /kod do wykonania}
 
      foreach(String element;strings)
- */
 
+     Set
+     HashSet()
+     TreeSet()
+     Deklaracja
+     Set<String>nazwaSet=new Hash<>();
+     Przypisanie wartości
+     nazwaSet.add("pierwszy");
+
+     metody:
+     size()-listy,sety: ilość elementów
+     lista.size();
+     nazwaSet.size();
+ */
 
 
         System.out.println(modelPojazdu1.toString());
