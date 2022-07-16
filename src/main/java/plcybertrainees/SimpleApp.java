@@ -1,14 +1,10 @@
 package plcybertrainees;
 
-import groovyjarjarantlr4.v4.runtime.misc.Array2DHashSet;
 import plcybertrainees.dziedziczenie.Kolor;
 import plcybertrainees.dziedziczenie.model;
 import spotkanie.Petle;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class SimpleApp {
 
@@ -49,10 +45,10 @@ public class SimpleApp {
         listaDouble.add(30.0);
         petle.dodawanieElementowlisty(listaDouble);
 
-        Set<Integer> wyswietlSet=new ArrayHashSet<>(
-        );
-        wyswietlSet.add(1);
-
+        petle.wyswietlSet();
+//        Set<Integer> wyswietlSet=new HashSet<>(
+//        );
+//        wyswietlSet.add(1);
 
 
 // Arrays.asList oczekuje zmianne double jak zadeklarowane w liscie
