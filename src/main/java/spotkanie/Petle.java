@@ -39,7 +39,7 @@ public class Petle {
     public void wyswietlSet() {
         Set<Integer> intSet = new HashSet<>(Set.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11));
         for (Integer element : intSet) {
-            System.out.println("To jest element setu " + element);
+            System.out.println("To jest element seta " + element);
 
         }
     }

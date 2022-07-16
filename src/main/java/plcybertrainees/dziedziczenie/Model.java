@@ -1,13 +1,13 @@
 package plcybertrainees.dziedziczenie;
 //exteds slowo kluczowe przy dziedziczeniu klas
-public class model extends pojazd{
+public class Model extends pojazd{
     private String nazwa;
     private  Integer przebieg;
     private Double pojemnoscSilnika;
     private Kolor kolor;
     //alt+enter//
 
-    public model(){
+    public Model(){
        super();
        this.nazwa="";
        this.przebieg=0;
@@ -16,7 +16,7 @@ public class model extends pojazd{
 
     }
 
-    public model(final String marka, final String rocznik,
+    public Model(final String marka, final String rocznik,
                  final String naped, final String nazwa,
                  final Integer przebieg, final Double pojemnoscSilnika,
                  final Kolor kolor) {
