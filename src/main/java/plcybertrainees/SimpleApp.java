@@ -2,6 +2,7 @@ package plcybertrainees;
 
 import plcybertrainees.dziedziczenie.Kolor;
 import plcybertrainees.dziedziczenie.model;
+import spotkanie.Petle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,40 @@ public class SimpleApp {
         strings.add("drugi");
         System.out.println(strings.get(1));
 
+
+        Petle petle=new Petle();
+        petle.wyswietlenie1d0100();
+
+
+/*instrukcja warunkowe:
+     if- wybór na podstawie warunku typu boolean
+     if(condition){
+     //kod}
+     else{
+     /inny kod}
+
+      if(condition){
+     //kod}
+     else if(condition2){
+     /inny kod}
+     pętle:
+     for/forech
+
+     pętle:
+     for stosujemy do prostych wyliczeń
+     for(int i=0;i<10;i++){
+     int=0-wartoć startowa pętli
+     i<10 do kiedy
+     i++ sposób zmieny wartośći i
+
+     wyjątek i++ > i=i+1;
+             i-- >i=i-1;
+     foreach-do list
+     foreach(){
+     /kod do wykonania}
+
+     foreach(String element;strings)
+ */
 
 
 
