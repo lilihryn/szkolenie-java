@@ -89,8 +89,9 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 //region miejsce na importy
 
-import plcybertrainees.wyjasnienia.Basics;
-import plcybertrainees.wyjasnienia.BasicsInteger;
+import plcybertrainees.wyjasnienia.*;
+
+import java.util.Scanner;
 //endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
@@ -158,6 +159,38 @@ public class SimpleApp {
         basics.wyswietlTekst1(c + " " + basicsInteger.sumaIntow(a, b));
         // InstrukcjeWarunkowe instrukcjeWarunkowee=new InstrukcjeWarunkowe();
         //instrukcjeWarunkowee.sprawdzenieRownosci(5);
+
+        //praca domowa
+        Integer wiek = 33;
+        String imie = "Liliia";
+        MojWiek mojWiek = new MojWiek();
+        mojWiek.wyswietlWiek(wiek);
+        MojeImie mojeImie = new MojeImie();
+        mojeImie.wyswietlImie(imie);
+
+
+        Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+        System.out.print("Podaj pierwsza liczbe");
+        int parne = sc.nextInt();
+        Parzystosc parzystosc = new Parzystosc();
+        parzystosc.sprawdzanieParzystosci(parne);
+        System.out.print("Podaj druga liczbe ");
+        int kratne = sc.nextInt();
+        Kratnosc kratnosc = new Kratnosc();
+        kratnosc.dzielenieNaTrzyiPiec(kratne);
+
+        System.out.println("Podaj trzecia liczbe");
+        Double liczba = sc.nextDouble();
+        double kub = 3.0;
+        Potega potega = new Potega();
+        potega.trzeciaPotega(liczba, kub);
+
+        System.out.println("Podaj czwarta liczbe");
+        Double liczba4 = sc.nextDouble();
+        Pierwiastek pierwiastek = new Pierwiastek();
+        pierwiastek.pierwiastekKwadratowy(liczba4);
+
+
     }
 
     //Należy pamiętać, że metody funkcjonalne deklarujemy w taki sposób:
@@ -170,8 +203,10 @@ public class SimpleApp {
     //Należy pamiętać aby nazwy metod były pisane camelCase'm z zastrzeżeniem
     // że pierwsza litera jest mała
     public String nazwaMetody() {
-        return ""; //return zawsze musi się pojawić jeśli nasza metoda jest inna niż void
-    }
+
+        return "";
+    }//return zawsze musi się pojawić jeśli nasza metoda jest inna niż void
+
 
     public void wyswietlTekst(String tekst) {
         System.out.println(tekst);
@@ -184,7 +219,8 @@ public class SimpleApp {
         //uzywanie pętli
         //uzywanie innych metod lub odwołanie do metod innych klad poprzez wcześniejszą deklaracje
         return 0;
-    }}
+    }
+}
 
-    //w tym miejscu możemy deklarować kolejne metody ich ilość jest dowolna.
-    //Zalecana wielość klasy nie powinna przekroczyć 200 linii pliku
+//w tym miejscu możemy deklarować kolejne metody ich ilość jest dowolna.
+//Zalecana wielość klasy nie powinna przekroczyć 200 linii pliku
