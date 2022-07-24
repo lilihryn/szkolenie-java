@@ -91,7 +91,6 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 import plcybertrainees.wyjasnienia.Basics;
 import plcybertrainees.wyjasnienia.BasicsInteger;
-import plcybertrainees.wyjasnienia.InstrukcjeWarunkowe;
 //endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
@@ -153,12 +152,12 @@ public class SimpleApp {
 
         Integer a = 1;
         Integer b = 1;
-        String c= "Wyswietl tekst";
+        String c = "Wyswietl tekst";
         //ctrl space po kropce podaje metody ktore mamy w kodie
 
-        basics.wyswietlTekst1(c + " "+basicsInteger.sumaIntow(a, b));
-        InstrukcjeWarunkowe instrukcjeWarunkowee=new InstrukcjeWarunkowe();
-       instrukcjeWarunkowee.sprawdzenieRownosci(5);
+        basics.wyswietlTekst1(c + " " + basicsInteger.sumaIntow(a, b));
+        // InstrukcjeWarunkowe instrukcjeWarunkowee=new InstrukcjeWarunkowe();
+        //instrukcjeWarunkowee.sprawdzenieRownosci(5);
     }
 
     //Należy pamiętać, że metody funkcjonalne deklarujemy w taki sposób:
@@ -185,9 +184,7 @@ public class SimpleApp {
         //uzywanie pętli
         //uzywanie innych metod lub odwołanie do metod innych klad poprzez wcześniejszą deklaracje
         return 0;
-    }
+    }}
 
     //w tym miejscu możemy deklarować kolejne metody ich ilość jest dowolna.
     //Zalecana wielość klasy nie powinna przekroczyć 200 linii pliku
-
-}

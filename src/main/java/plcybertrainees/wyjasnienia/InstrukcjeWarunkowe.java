@@ -1,6 +1,6 @@
 package plcybertrainees.wyjasnienia;
 
-public class InstrukcjeWarunkowe {
+/*public class InstrukcjeWarunkowe {
     /*
     Instrukcja warunkowa if
     budowa if'a
@@ -36,7 +36,7 @@ public class InstrukcjeWarunkowe {
 
     // metoda ktora zawróci true false jesli podana liczba nie jest rowna 10
 
-    public boolean sprawdzenieRownosci(Integer liczba){
+  /*  public boolean sprawdzenieRownosci(Integer liczba){
         //!= sprawdzanie czy liczba nie rownie się liczbie
         if(liczba!=10) {
             return true;
@@ -45,4 +45,4 @@ public class InstrukcjeWarunkowe {
         }
     }
 }
-}
+}*/

@@ -1,6 +1,6 @@
 package plcybertrainees.wyjasnienia;
 
-public class Petle {
+/*public class Petle {
     /*
     for i foreach
     int i=0 inicjalizacja parametru poczatkowego do przegodzenia po pętle
