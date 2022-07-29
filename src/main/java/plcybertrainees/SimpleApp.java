@@ -89,9 +89,7 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 //region miejsce na importy
 
-import plcybertrainees.wyjasnienia.Basics;
-import plcybertrainees.wyjasnienia.BasicsInteger;
-import plcybertrainees.wyjasnienia.InstrukcjeWarunkowe;
+import plcybertrainees.wyjasnienia.Petle;
 //endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
@@ -108,6 +106,10 @@ public class SimpleApp {
 
     //w ramach klasy deklarujemy zmienne globalne oraz metody
     public static String SEPARATOR_SPACJA = " "; //zmienna globalna dostępna w całej klasie.
+
+    public SimpleApp() {
+
+    }
     //konstrukcja zmiennych globalnych
     //modyfikator dostępu
     //słowo kluczowe static - określa że nasza zmienna jest statyczna
@@ -126,7 +128,13 @@ public class SimpleApp {
     //parametry wejściowe metody, może ich nie być
     // ale z reguły powinna być to tablica args (tj. String[] args)
     public static void main(String[] args) {
-        Basics testKonstr = new Basics(124);
+
+
+        Petle petle= new Petle();
+        petle.urochom();
+    }}
+
+        /*Basics testKonstr = new Basics(124);
 
 
         //UWAGA należy pilnować {} metody aby nie piesać tzw. metody w metodzie
@@ -135,7 +143,7 @@ public class SimpleApp {
         // z kodem, który chcemy uruchomić.
 
         //pierwsze rozwiązanie
-        Basics basics = new Basics();
+       /* Basics basics = new Basics();
         basics.wyswietlTekst1("Jakiś tekst do wyświetlenia");
 
 //drugie rozwiązanie
@@ -191,3 +199,6 @@ public class SimpleApp {
     //Zalecana wielość klasy nie powinna przekroczyć 200 linii pliku
 
 }
+
+}
+*/
