@@ -44,6 +44,8 @@ public class Petle {
         choinkaRozbudowana(3);
         choinkaRozbudowana2(3);
         wyswietkKratne5();
+        pierwszyProgramWhile();
+
 
 //metoda
         //utworzenie i deklaracja listy
@@ -112,19 +114,19 @@ public class Petle {
         }
     }
 
-// zadanie utworzyc metode która przejdzie(iteruje) liczbach od 1 do 100,
+    // zadanie utworzyc metode która przejdzie(iteruje) liczbach od 1 do 100,
 // natomiast wyświetli tylko te które są podzielne przez 5
 //oraz dodaje ich do siebie
     private void wyswietkKratne5() {
-        Integer sumaLiczb=0;
-        Integer iloscLiczb=0;
+        Integer sumaLiczb = 0;
+        Integer iloscLiczb = 0;
 
         for (int cale = 1; cale <= 100; cale++) {//inicializacja i deklaracja;do kiedy;warunek++ albo--
             if (cale % 5 == 0) //% modulo poszukiwanie reszty dzielenie kóre jest 0
-                {
+            {
                 System.out.println("Podzielne przez 5 " + cale);//zawsze spacja
-                sumaLiczb+=cale;//dodaje ich do siebie
-                iloscLiczb+=1;//sprawdzaje ilosc liczb kratnych 5
+                sumaLiczb += cale;//dodaje ich do siebie
+                iloscLiczb += 1;//sprawdzaje ilosc liczb kratnych 5
             }
 
         }
@@ -134,5 +136,62 @@ public class Petle {
 
     }
 
+    //petle
+    // WHILE oraz do While
+    //while- slowo kluczowe okreslajace deklaracje petli while
+    // do -- slowo kluczowe okreslajace deklaracje petli do while
+    //(condition)-warunek okreslajace zakonczenije dzialania petli
+    /*
+    while(condition){
+    //blok kodu}
+
+
+    do{blok kodu}
+    while(condition);
+
+    int liczba=1;
+    while(liczba<1){
+    println("to jest liczba: "+liczba);
+    }
+
+    do{
+    println("to jest licba: "+ liczba);
+    liczba++;
+    }while(liczba<1)
+     */
+    private void pierwszyProgramWhile() {
+        int liczba = 0;
+        while (liczba < 1) {
+            System.out.println("while,to jest liczba: " + liczba);
+            liczba++;
+        }
+        do {
+            System.out.println("do while, to jest liczba: " + liczba);
+            liczba++;
+        } while (liczba < 1);
+    }
+}
+    /*private void sumaLiczbZForiWhile() {
+        Integer sumaFor=0;
+        Integer sumaWhile=0;
+        Integer sumalicznikWhile=0;
+
+
+        for (int i = 0; i<= 10; i++) {
+            System.out.println("Suma jest: " + sumaFor);
+            sumaFor += i;
+        }
+        int i=0;
+        sumalicznikWhile
+        while (i<10) {
+            sumaWhile += i;
+            System.out.println("Suma liczb: " + sumaWhile);
+        }
+        do{ System.out.println("Suma liczb: " + sumaWhile);
+           i++;
+            sumaWhile+=i;}while (i<10);
+
+    }
 }
 
+*/

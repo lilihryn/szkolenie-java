@@ -89,7 +89,6 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 //region miejsce na importy
 
-import plcybertrainees.wyjasnienia.InstrukcjeWarunkowe;
 import plcybertrainees.wyjasnienia.Petle;
 //endregion
 
@@ -133,8 +132,8 @@ public class SimpleApp {
 
         Petle petle= new Petle();
         petle.urochom();
-        InstrukcjeWarunkowe instrukcjeWarunkowe=new InstrukcjeWarunkowe();
-        instrukcjeWarunkowe.urochom();
+//        InstrukcjeWarunkowe instrukcjeWarunkowe=new InstrukcjeWarunkowe();
+//        instrukcjeWarunkowe.urochom();
 
     }}
 
