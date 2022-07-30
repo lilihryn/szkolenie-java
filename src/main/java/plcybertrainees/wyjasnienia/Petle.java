@@ -42,6 +42,8 @@ public class Petle {
         rozwiazanieZadania1(lista);
         choinkaProsta();
         choinkaRozbudowana(3);
+        choinkaRozbudowana2(3);
+        wyswietkKratne5();
 
 //metoda
         //utworzenie i deklaracja listy
@@ -62,12 +64,13 @@ public class Petle {
     //potrzebuje dwa fory
     //metoda bedzie przyjmować parametr jako wysokość
 
-    private void choinkaProsta(){
+    private void choinkaProsta() {
         System.out.println("  *");
         System.out.println(" ***");
         System.out.println("*****");
 
     }
+
     private void choinkaRozbudowana(Integer wysokoscChoinki) {
     /*
     int <-> Integer
@@ -96,7 +99,7 @@ public class Petle {
         System.out.println("Liczba gwiazdek w podstawie: " + maksymalnaLiczbaGwiazdek);
         System.out.println();
 
-        for (int x = 1; x <= maksymalnaLiczbaGwiazdek; x += 2) {
+        for (int x = 1; x <= maksymalnaLiczbaGwiazdek; x += 2) {//x=x+2//x++
             Integer spacje = (maksymalnaLiczbaGwiazdek - x) / 2;
             for (int y = 0; y < spacje + x; y++) {
                 if (y < spacje) {
@@ -109,7 +112,27 @@ public class Petle {
         }
     }
 
+// zadanie utworzyc metode która przejdzie(iteruje) liczbach od 1 do 100,
+// natomiast wyświetli tylko te które są podzielne przez 5
+//oraz dodaje ich do siebie
+    private void wyswietkKratne5() {
+        Integer sumaLiczb=0;
+        Integer iloscLiczb=0;
+
+        for (int cale = 1; cale <= 100; cale++) {//inicializacja i deklaracja;do kiedy;warunek++ albo--
+            if (cale % 5 == 0) //% modulo poszukiwanie reszty dzielenie kóre jest 0
+                {
+                System.out.println("Podzielne przez 5 " + cale);//zawsze spacja
+                sumaLiczb+=cale;//dodaje ich do siebie
+                iloscLiczb+=1;//sprawdzaje ilosc liczb kratnych 5
+            }
+
+        }
+        System.out.println(sumaLiczb);
+        System.out.println(iloscLiczb);
+
+
+    }
 
 }
-
 
