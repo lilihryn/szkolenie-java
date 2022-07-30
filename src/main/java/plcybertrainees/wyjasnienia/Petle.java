@@ -41,6 +41,7 @@ public class Petle {
         lista.add(BigDecimal.valueOf(4.0));
         rozwiazanieZadania1(lista);
         choinkaProsta();
+        choinkaRozbudowana(3);
 
 //metoda
         //utworzenie i deklaracja listy
@@ -67,13 +68,48 @@ public class Petle {
         System.out.println("*****");
 
     }
-    private void choinkaRozbudowana(Integer wysokoscChoinki){
-        Integer iloscGwiazdekWPodstawie=(wysokoscChoinki*2)+1;
-      for(int wysokosc=0;wysokosc<=wysokoscChoinki;wysokosc++){
+    private void choinkaRozbudowana(Integer wysokoscChoinki) {
+    /*
+    int <-> Integer
+    double <-> Double
+    BigInteger, BigDecimal
+    long <-> Long
+    etc.
+     */
 
-
+        for (int wysokosc = 0; wysokosc < wysokoscChoinki; wysokosc++) {
+            for (int szerokosc = 0; szerokosc < wysokoscChoinki * 2; szerokosc++) {
+                if (szerokosc < (wysokoscChoinki - wysokosc) || szerokosc > (wysokoscChoinki + wysokosc)) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
     }
 
-}}
+
+    private void choinkaRozbudowana2(Integer wysokoscChoinki) {
+
+        Integer maksymalnaLiczbaGwiazdek = (wysokoscChoinki * 2) - 1;
+        System.out.println("Liczba gwiazdek w podstawie: " + maksymalnaLiczbaGwiazdek);
+        System.out.println();
+
+        for (int x = 1; x <= maksymalnaLiczbaGwiazdek; x += 2) {
+            Integer spacje = (maksymalnaLiczbaGwiazdek - x) / 2;
+            for (int y = 0; y < spacje + x; y++) {
+                if (y < spacje) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print("*");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+}
 
 
