@@ -219,7 +219,7 @@ public class Petle {
     }
     // metoda ciąg Fibonacciego; 2 metody n-1 n+2, przez rekurencje praca domowa***
 
-    //TABLICY new
+    //TABLICE new
 
 
 }

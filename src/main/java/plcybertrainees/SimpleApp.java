@@ -90,6 +90,7 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 //region miejsce na importy
 
 import plcybertrainees.wyjasnienia.Petle;
+import plcybertrainees.wyjasnienia.Tablice;
 //endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
@@ -129,6 +130,8 @@ public class SimpleApp {
     // ale z reguły powinna być to tablica args (tj. String[] args)
     public static void main(String[] args) {
 
+        Tablice tablice=new Tablice();
+        tablice.uruchom();
 
         Petle petle= new Petle();
         petle.urochom();
