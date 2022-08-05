@@ -45,6 +45,7 @@ public class Petle {
         choinkaRozbudowana2(3);
         wyswietkKratne5();
         pierwszyProgramWhile();
+        programSilnia();
 
 
 //metoda
@@ -170,7 +171,7 @@ public class Petle {
             liczba++;
         } while (liczba < 1);
     }
-}
+
     /*private void sumaLiczbZForiWhile() {
         Integer sumaFor=0;
         Integer sumaWhile=0;
@@ -195,3 +196,30 @@ public class Petle {
 }
 
 */
+    private void programSilnia() {//faktorial iteracyjnie
+        Integer s = 1;
+        Integer i = 1;
+        Integer n = 4;//n!
+
+        while (i <= n) {
+
+            s *= i;//s=s*i;
+            i++;//i=i+1;
+        }
+        System.out.println("n!" + s);
+        System.out.println("n!" + silnikRekurencja(4));
+
+    }
+    private Integer silnikRekurencja(Integer n){//faktorial rekuracijne
+        if (n>1){
+            return n*silnikRekurencja(n-1);
+        }else{
+            return 1;
+        }
+    }
+    // metoda ciąg Fibonacciego; 2 metody n-1 n+2, przez rekurencje praca domowa***
+
+    //TABLICY
+
+
+}
