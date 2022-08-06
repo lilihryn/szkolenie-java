@@ -91,6 +91,7 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 import plcybertrainees.wyjasnienia.Petle;
 import plcybertrainees.wyjasnienia.Tablice;
+import plcybertrainees.wyjasnienia.Wyjatki;
 //endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
@@ -128,17 +129,23 @@ public class SimpleApp {
     //nazwa metody zawsze main
     //parametry wejściowe metody, może ich nie być
     // ale z reguły powinna być to tablica args (tj. String[] args)
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Tablice tablice=new Tablice();
+        Tablice tablice = new Tablice();
         tablice.uruchom();
 
-        Petle petle= new Petle();
+        Wyjatki wyjatki = new Wyjatki();
+        wyjatki.uruchom();
+
+        Petle petle = new Petle();
         petle.urochom();
+
+
 //        InstrukcjeWarunkowe instrukcjeWarunkowe=new InstrukcjeWarunkowe();
 //        instrukcjeWarunkowe.urochom();
 
-    }}
+    }
+}
 
         /*Basics testKonstr = new Basics(124);
 

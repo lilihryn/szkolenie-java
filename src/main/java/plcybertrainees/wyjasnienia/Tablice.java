@@ -54,7 +54,7 @@ public class Tablice {
     public void uruchom() {
         nowaTablica();
         wyswietlTabliceZRandom();
-        ListaZTablicy();
+        listaZTablicy();
         tablicaWielowymierowa();
     }
 
@@ -92,7 +92,7 @@ public class Tablice {
         }
     }
 
-    private void ListaZTablicy() {
+    private void listaZTablicy() {
         List<Integer> Lista = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < 5; i++) {
@@ -107,7 +107,7 @@ public class Tablice {
         Random rand = new Random();
         for (int i = 0; i < tablica1.length; i++) {
             for (int j = 0; j < tablica1.length; j++) {
-                tablica1[i][j] = rand.nextInt(150) + 50;
+                tablica1[i][j] = rand.nextInt(150) + 50;// od 50 do 150
                 System.out.println("Random tablica wielowymierowa" + tablica1[i][j]);
             }
 
