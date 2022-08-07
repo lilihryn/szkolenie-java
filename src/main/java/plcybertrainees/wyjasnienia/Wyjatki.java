@@ -1,6 +1,8 @@
 package plcybertrainees.wyjasnienia;
 
+import plcybertrainees.wyjasnienia.Wyjatek.CheckedException;
 import plcybertrainees.wyjasnienia.Wyjatek.MojPierwszyException;
+import plcybertrainees.wyjasnienia.Wyjatek.UncheckedException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -8,163 +10,185 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class Wyjatki {
-    public void uruchom() throws Exception {
+
+//  IndexOutOfBoundsException
+//  IOException
+//  IllegalArgumentException
+
+    // throw
+
+    //Wywołanie (rzucenie) wyjątku w kodzie
+    //throw new IOException();
 
 
-//        dzielenieLiczb();
-        dzielenieLiczb2();
-        pierwiastek();
-        pierwiastekAlternatywa();
-        pierwiastek2();
-        //wyswietlString(null);
-        //Zadanie3(null);
-        //wyswietlString2();
-        try {
-            pobierzInformacjeZPliku();
-        } catch (MojPierwszyException e) {
-            System.out.println("Komunikat pobierz informacje z pliku");
-        }
+    //mamy dostępne 2 rodzeje wyjątków chacked i unchecked
+  /*
+  Wyjątki checked musimy obsłużyć inaczej program się nie skompiluje oraz nie uruchomi.
+  Przykładem wyjątku checked jest wyjątek IOException, ponieważ dziedziczy (extends) on po klasie Exception.
+  Tego typu wyjątek i wiele mu podobnych musimy zawsze obsłużyć
 
-        try {
-            pierwszaMetoda();
-        } catch (MojPierwszyException e) {
-            System.out.println("Komunikat pierwsza metoda");
-        }
-    }
-    // IndexOutOfBoundsException
-    //IOException
-    //IllegalArgumentException
-    //throw new IOException();>> wywolanie wyjatku w kodzie
-    //2 rodzaje wyjatkow
-    //1-checked-programista zawsze musze otwórzyć, bez czego program nie zadziala
-    // naprzyklad IOException, ponieważ dziedzicze on po klasie Exception
-    //2-unchecked-'nie zagrażające dzialaniu aplikacji',
-    // tego typu wyjatek może być wżuczony przez aplikacje i aplikacja nadal bede dzialala nie zależnie od niego
-    //naprzyklad  IndexOutOfBoundsException ponieważ dziedzicze po klasie RuntimeException
-    //Exception in thread "main" java.lang.ArithmeticException: / by zero
-    //	at plcybertrainees.wyjasnienia.Wyjatki.dzielenieLiczb(Wyjatki.java:34)
-    //	at plcybertrainees.wyjasnienia.Wyjatki.uruchom(Wyjatki.java:7)
-    //	at plcybertrainees.SimpleApp.main(SimpleApp.java:138)
 
-    /*
-    obsługa wyjątkow
-    poprzez słowo kłuczowe>> throws
-    priate void  dzielenieLiczb(Integer a, Integer b) throws IOException{
-    }StrackTrace-iformacja o wyjatku w terminale
-     */
+  Wyjątki typu unchecked to są wyjątki 'niezagrażające działaniu aplikacji'. To znaczy, że w ciągu działania aplikacji
+  może zostać on rzucony natomiast aplikacja będzie działała niezależnie od niego.
+  Przykładem wyjątku unchecked jest IndexOutOfBoundsException, ponieważ dziedziczy (extends) po klasie RuntimeException
+   */
+
+  /*
+  Obsługa wyjątków.
+  poprzez słowo kluczowe throws, które zwykle piszemy po deklaracji metody a przed nawiasem { otwierającym metode.
+  np.
+  private void dzielenieLiczb(Integer a, Integer b) throws IOException {
+
+  Dzięki słowu throws nasz wyjątek zostanie przekazany do metody wyżej, jeśli będzie ta konstrukcja użyta przy metodzie main
+  to wtedy nasz wyjątek checked zostanie wyświetlony w konsoli.
+
+  StackTrace - czyli wyświetlone informacje o wyjątku dostępne z konsoli.
+   */
+
+
     private void dzielenieLiczb() throws IOException {
-        // użyć scannera, dwie zmienne od użytkownika i wykonać dzielenie liczb
+        // Użycie Scanner aby pobrać 2 zmienne od Użytkownika
+        // I wykonać działanie dzielenia liczb.
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj cale a");
+
+        System.out.println("Podaj 1 liczbę: ");
         Integer a = scanner.nextInt();
-        System.out.println("Podaj cale b");
+        System.out.println("Podaj 2 liczbę: ");
         Integer b = scanner.nextInt();
 
-        System.out.println("Wynik dzielenia:" + a / b);
-        throw new IOException("Test");// musze być od początku, w simple app, w klasie uruchom, w metodie i w srodku metody
+        System.out.println("Wynik dzielenia: " + a/b);
+        //throw powoduje rzucenie wyjątku. Dzięki temu możemy rzucić dowolnym wyjątkiem w dowolnym momencie aplikacji
+//    throw new IOException("test");
 
-        /*
-        Obsluga w zalecany sposób
-        konstrukcja try/catch
-
-        try{ kod który może generować jakiś exception, może być checked oraz unchecked
-        throw newIOException("test");
-        }
-        catch(IOException ex){
-        System.out.println("Wiadomość);
-        }
-        try{  System.out.println("Wynik dzielenia:" + a / b);
-        }
-        catch(AritmethicException ex){
-        System.out.println("NIedozwolone dzielenie przez 0");
-        }
-
-         */
     }
+
+  /*
+  Obsługa wyjątków w zalecany sposób
+
+  Używamy konstrukcji try / catch
+
+  try {
+ //w tym miejscu powinien być kod, który może generować jakiś Exception
+    throw new IOException("test");
+  } catch(IOException ex) {
+  // konstrukcja obsługi błędu. W tym miejscu np podajemy informację na konsolę ewentualnie możemy wykonać inne działania
+    System.out.println("wiadomość");
+  }
+
+  try {
+  System.out.println("Wynik dzielenia: " + a/b);
+  } catch (ArithmeticException ex) {
+
+  System.out.println("Niedozwolona operacja dzielenia przez 0. Zostanie wykonane dzielenie przez 1.");
+  System.out.println("Wynik dzielenia: " + a/1);
+
+  }
+   */
 
     private void dzielenieLiczb2() {
-        // użyć scannera, dwie zmienne od użytkownika i wykonać dzielenie liczb
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj cale a");
-        Integer a = scanner.nextInt();
-        System.out.println("Podaj cale b");
-        Integer b = scanner.nextInt();
-        try {
 
-            System.out.println("Wynik dzielenia:" + a / b);
+        System.out.println("Podaj 1 liczbę: ");
+        Integer a = scanner.nextInt();
+        System.out.println("Podaj 2 liczbę: ");
+        Integer b = scanner.nextInt();
+
+
+        try {
+            System.out.println("Wynik dzielenia: " + a/b);
         } catch (ArithmeticException ex) {
-            System.out.println("Dzielenie przez null");
+
+//      System.out.println("Niedozwolona operacja dzielenia przez 0. Zostanie zwrócona wartość 0.");
+//      System.out.println("Wynik dzielenia: " + 0);
+
+            System.out.println("Niedozwolona operacja dzielenia przez 0. Użytkownik podał a: " + a + " b: " + b);
+
         }
 
 
+        try {
+            throw new IllegalArgumentException("test");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("IllegalArgumentException thrown");
+        }
+        finally {
+            System.out.println("to jest finally!!!");
+        }
+
+//    try {
+//      System.out.println("Wynik dzielenia: " + a/b);
+//
+//    } catch(ArithmeticException ex) {
+//      System.out.println("ArithmeticException!!!");
+//    } catch(IllegalArgumentException ex) {
+//      System.out.println("Podaj poprawne informacje!!!");
+//    } catch(RuntimeException ex) {
+//      System.out.println("Ojej !!!");
+//    } catch(Exception ex) {
+//      System.out.println("Coś się stało!!!");
+//    }
+
+//    try {
+//
+//    } catch(ArithmeticException | IllegalArgumentException ex) {
+//      System.out.println("Podaj poprawne informacje!!!");
+//    }
     }
-    //rozwiencie konstrukcji try/catch
-    /* try{System.out.println("Wynik dzielenia:" + a / b);}
-    catch(RuntimeException ex){
-     System.out.println("ojej");}
-     catch(Exception ex){
-     System.out.println("Cos sie stalo");}
-     catch(IllegalArgumentException ex){
-     System.out.println("Podaj poprawne informacje");
-     }
-     catch(RuntimeException ex|IllegalArgumentException ex){
-     System.out.println("Podaj poprawne informacje");
-     }
-     możemy stosować konstrukcji uniwersalnej finally
 
-     try{
-     throw new IOException("test");
-     }
-     finally{
-     System.out.println("Podaj poprawne informacje");
-     }
-     block finally bede wykonany tak czy inaczej, bez wzglądu na te czy zostal obslużony wyjątek
+  /*
+  Rozwiniecie konstrukcji try / catch
 
+  try {
 
-     DOBRE PRAKTYKI PRZY UŻYWANIU WYJĄTKÓW
-     1) block try musze miec jaknajmniej kodu do weryfikacji;
-     2) powinniśmi używać szczególowych wyjątków np IllegalArgumentException zamiast Exception
-     3) w bloku catch należy podać najbardziej szczególowe informacje o problemie z ich opisem
-     4) używamy wyjątków typu checked
-     */
+  } catch(ArithmeticException ex) {
 
-    //zadanie pobrać od użytkownika liczby i wyswietli jej piewiastek
-    // jezeli liczba ujemna to nalezyc rzuczć IllegalArgumentException
-    //oraz ciąg znaków która nie jest liczbą
+  } catch(IllegalArgumentException ex) {
+    println("Podaj poprawne informacje!!!");
+  } catch(RuntimeException ex) {
+    println("Ojej !!!");
+  } catch(Exception ex) {
+     println("Coś się stało!!!");
+  }
 
+  Wyjątki obsługujemy od szczegółu do ogółu tzn ArithmeticException -> RuntimeException -> Exception
+
+  Catch można parametryzować do wielu wyjątków.
+  Catch można grupować tzn kilka 'obsłużeń' wyjątków zawęzić do jednego bloku catch
+
+try {
+
+  } catch(ArithmeticException | IllegalArgumentException | RuntimeException | Exception ex) {
+    println("Podaj poprawne informacje!!!");
+  }
+
+  try {
+
+  } finally {
+      System.out.println("to jest finally!!!");
+  }
+
+   */
+
+  /*
+  Dobre praktyki przy używaniu wyjątków
+
+ 1) Blok try powinien mieć jak najmniej kodu do weryfikacji
+ 2) Powinniśmy używać szczegółowych wyjątków tj. np. IllegalArgumentException zamiast Exception
+ 3) W bloku catch należy podać najbardziej szczegółowe informacje o problemie z ich opisem.
+ 4) Powinniśmy używać wyjątków typu checked
+   */
+
+    //Zadanie2
+    //Utworzyć metodę która pobierze od użytkownika liczbę i wyświetli jej pierwiastek.
+//  Jeśli użytkownik poda liczbę ujemną to należy rzucić IllegalArgumentException oraz obsłużyć sytuację w której użytkownik
+    // poda ciąg znaków, który nie jest liczbą.
 
     private void pierwiastek() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj liczbe dla pierwistka");
-        Integer c = 0;
-        try {
-            c = scanner.nextInt();//<-- try{} catch() do weryfikacji czy nie mamy InputMismatchException
-        } catch (InputMismatchException ex) {
-            System.out.println("Zostala podana ina wartość");
-
-        } catch (Exception ex) {
-            System.out.println("Inny bląd");
-        }
-
-
-        //if(c<0){
-//        throw new IllegalArgumentException();
-
-
-        if (c > 0) {
-            System.out.println("Pierwiastek " + Math.sqrt(c));
-
-
-        } else {
-            System.out.println("Liczba muszę być dodatnia");
-        }
-
-    }
-
-    private void pierwiastek2() {
         Scanner scan = new Scanner(System.in);
         Integer liczba = null;
         try {
@@ -174,7 +198,7 @@ public class Wyjatki {
             liczba = 0;
         }
 
-        if (liczba < 0) {
+        if(liczba < 0) {
             throw new IllegalArgumentException("Została podana liczba ujemna!");
         }
 
@@ -191,12 +215,12 @@ public class Wyjatki {
             }
         } catch (NumberFormatException e) {
             System.out.println(" Get Message: " + e.getMessage());
-            System.out.println(" Get StackTrace: ");
+            System.out.println(" Get StackTrace: " );
             for (StackTraceElement element : e.getStackTrace()) {
                 System.out.println(element);
             }
             System.out.println();
-            throw new IllegalArgumentException("Została podana inna wartość niż liczbowa jej wartość: " + liczba);
+            throw new IllegalArgumentException("Została podana inna wartość niż liczbowa jej wartość: " + liczba );
         }
         System.out.println("Pierwiastek liczby " + liczba + " to: " + Math.sqrt(Integer.parseInt(liczba)));
     }
@@ -206,61 +230,122 @@ public class Wyjatki {
     //metoda powinna przyjąc parametr oraz zwrócić wartość
     //przekazały String a returnem string.length()
 
+    private Integer wyswietlDlugoscParametruString(String s) {
+        return s.length();
+    }
+
+    private Integer wyswietlDlugoscParametruString() {
+        String scan = null;
+
+        return scan.length();
+    }
 
     //Zadanie 4
     //Rozwinięcie zadania 3
     // obsłużenie tego wyjątku
 
-  /*  private Integer wyswietlString(String s) {
-
-        return s.length();
-    }
-
-    private Integer wyswietlString2() {
-        String scan = null;
-        return scan.length();
-    }
-
-
-    private Integer Zadanie3(String s) {
-
+    private Integer wyswietlDlugoscParametruString2(String s) {
         try {
             return s.length();
         } catch (NullPointerException e) {
-            System.out.println("Zostala podana wartość null");
+            System.out.println("Została podana wartość null. "
+                    + "Ewentualnie nie została prawidłowo zdefiniowana wartość dla zmiennej s");
+            return 0;
         }
-        return 0;
-    }*/
+    }
 
-    private void pobierzInformacjeZPliku() throws MojPierwszyException {
-        Scanner scan;
+    //Zadanie 5
+    //Rozwinąć zadanie 3 o blok try catch tak jak w zadaniu 4 natomiast zamiast komunikatu
+    // należy rzucić wyjątek typu Exception z informacją z wyjątku NullPointerException
+
+    private Integer wyswietlDlugoscParametruString3(String s) throws Exception {
+        try {
+            return s.length();
+        } catch (NullPointerException e) {
+            System.out.println("Została podana wartość null. "
+                    + "Ewentualnie nie została prawidłowo zdefiniowana wartość dla zmiennej s");
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    private void pobierzInformacjeZPliku() {
+        Scanner scan = null;
         try {
             scan = new Scanner(
-                    new File("src/main/java/resources/test.txt")
+                    new File("src/main/resources/test2.txt")
             );
         } catch (FileNotFoundException e) {
-            throw new MojPierwszyException("Komunikatnaszego blędu");//korzystam z menu inteliji przy blądach
+            throw new MojPierwszyException("Komunikat naszego błędu!");
         }
+
         System.out.println(scan.nextLine());
     }
 
-    //2 metody 2 rodzaje exceptions
-    // checked dzidziće po exception
-//unchecked dziedzicze po runtimeexception
-//pierwsza metoda powinna wykonywać dzielenie
-//zwraca przygotowany przez nas Exception typu check (uwaga throws)
-    private void pierwszaMetoda() throws MojPierwszyException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj cale w metodie1 a");
-        Integer a = scanner.nextInt();
-        System.out.println("Podaj cale w metodi1 b");
-        Integer b = scanner.nextInt();
-        try {
+    //Zadanie Utworzy 2 metody oraz 2 rodzaje Exceptions
+  /*
+  jeden jako checked tj. ma dziedziczyć po Exception
+  drugi jako unchecked tj. powinien dziedziczyć po RuntimeException
 
-            System.out.println("Wynik dzielenia:" + a / b);
-        } catch (ArithmeticException ex) {
-            throw new MojPierwszyException("Niepoprawne dzielenie");
+  pierwsza metoda powinna wykonywać dzielenie natomiast powinna zwracać
+   przygotowany przez nas Exception typu checked zwrócić uwagę na throws
+   następnie w metodzie uruchom należy obsłużyć wyjątek
+
+     druga metoda powinna wykonywać dzielenie natomiast powinna zwracać
+   przygotowany przez nas Exception typu unchecked
+
+   */
+
+    private void dzielenieChecked() throws CheckedException {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Podaj 1 liczbę: ");
+        Integer a = s.nextInt();
+        System.out.println("Podaj 2 liczbę: ");
+        Integer b = s.nextInt();
+
+        try {
+            System.out.println("Wynik dzielenia: " + a / b);
+        } catch (ArithmeticException e) {  // e.getMessage() >>> / by zero
+            throw new CheckedException("Rzucam Checked: " + e.getMessage());
+        }
+    }
+
+
+    private void dzielenieUnChecked() {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Podaj 1 liczbę: ");
+        Integer a = s.nextInt();
+        System.out.println("Podaj 2 liczbę: ");
+        Integer b = s.nextInt();
+
+        try {
+            System.out.println("Wynik dzielenia: " + a / b);
+        } catch (ArithmeticException e) {
+            throw new UncheckedException("Rzucam UnChecked: " + e.getMessage());
+        } catch (InputMismatchException e) {
+//      throw new CheckedException("Rzucam Checked: " + e.getMessage());
+        }
+    }
+
+    public void uruchom()
+//      throws Exception
+    {
+//    pierwiastekAlternatywa();
+
+//    String zmienna = null;
+//    wyswietlString(zmienna);
+//    wyswietlDlugoscParametruString3(null);
+//    pobierzInformacjeZPliku();
+
+        try {
+            dzielenieChecked();
+        } catch (CheckedException e) {
+            System.out.println(e.getMessage());//wyświetli tylko message wyjątku
+            System.out.println(e);
+            e.printStackTrace();
         }
 
+        dzielenieUnChecked();
     }
 }

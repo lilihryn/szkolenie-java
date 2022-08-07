@@ -1,10 +1,10 @@
 package plcybertrainees;
-/*import java.util.Scanner;
+import java.util.Scanner;
 
 public class Kalk {
     public static String SEPARATOR_SPACE= " ";
 
-   void kalkulator() {
+   public double kalkulator() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Zmianna1?");
         double zmianna1 = scanner.nextDouble();
@@ -13,7 +13,7 @@ public class Kalk {
         System.out.println("Jaky operator -,+,/,*?");
         char operator = scanner.next().charAt(0);
         scanner.close();
-        double resultat=0;
+        double resultat=0.0;
 
         switch (operator){
             case'+':
@@ -26,14 +26,14 @@ public class Kalk {
             case'*':
                 resultat=zmianna1*zmianna2;
             default:
-                System.out.printf("Bląd!");
-                return;
+                System.out.printf(zmianna1+SEPARATOR_SPACE+operator+SEPARATOR_SPACE+zmianna2+"="+resultat);
+                return resultat;
         }
-        System.out.println(zmianna1+SEPARATOR_SPACE+operator+SEPARATOR_SPACE+zmianna2+":"+resultat);
 
 
-    }
+
+       return resultat;
+   }
 
 
 }
-*/

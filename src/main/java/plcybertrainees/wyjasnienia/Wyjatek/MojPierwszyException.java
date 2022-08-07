@@ -1,8 +1,8 @@
 package plcybertrainees.wyjasnienia.Wyjatek;
 
-public class MojPierwszyException extends Exception{
+public class MojPierwszyException extends RuntimeException {
 
     public MojPierwszyException(String message) {
-        super(message);//generate alt insert
+        super(message);
     }
 }

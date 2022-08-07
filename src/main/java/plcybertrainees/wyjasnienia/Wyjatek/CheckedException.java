@@ -1,4 +1,8 @@
 package plcybertrainees.wyjasnienia.Wyjatek;
 
-public class CheckedException {
+public class CheckedException extends Exception {
+
+    public CheckedException(String message) {
+        super(message);
+    }
 }

@@ -89,10 +89,7 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 //region miejsce na importy
 
-import plcybertrainees.wyjasnienia.Petle;
-import plcybertrainees.wyjasnienia.Tablice;
-import plcybertrainees.wyjasnienia.Wyjatki;
-//endregion
+import plcybertrainees.wyjasnienia.Wyjatki;//endregion
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
 //modyfikator dostępu klasy public / private
@@ -131,14 +128,17 @@ public class SimpleApp {
     // ale z reguły powinna być to tablica args (tj. String[] args)
     public static void main(String[] args) throws Exception {
 
-        Tablice tablice = new Tablice();
-        tablice.uruchom();
+        //Tablice tablice = new Tablice();
+       // tablice.uruchom();
 
         Wyjatki wyjatki = new Wyjatki();
         wyjatki.uruchom();
 
-        Petle petle = new Petle();
-        petle.urochom();
+       // Petle petle = new Petle();
+        //petle.urochom();
+
+        //Kalk kalk= new Kalk();
+        //kalk.kalkulator();
 
 
 //        InstrukcjeWarunkowe instrukcjeWarunkowe=new InstrukcjeWarunkowe();
