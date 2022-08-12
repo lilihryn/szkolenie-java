@@ -27,7 +27,7 @@ public class Kalk {
                 resultat=zmianna1*zmianna2;
             default:
                 System.out.printf(zmianna1+SEPARATOR_SPACE+operator+SEPARATOR_SPACE+zmianna2+"="+resultat);
-                return resultat;
+
         }
 
 
