@@ -1,3 +1,4 @@
+plcybertrainees\wyjasnienia\Obiekty.class
 plcybertrainees\wyjasnienia\Petle.class
 plcybertrainees\PracaDomowa.class
 plcybertrainees\wyjasnienia\Basics.class
@@ -13,5 +14,6 @@ plcybertrainees\SimpleApp.class
 plcybertrainees\wyjasnienia\InstrukcjeWarunkowe.class
 plcybertrainees\dziedziczenie\model.class
 plcybertrainees\wyjasnienia\BasicsInteger.class
+plcybertrainees\wyjasnienia\TalkDTO.class
 plcybertrainees\wyjasnienia\Wyjatek\CheckedException.class
 plcybertrainees\wyjasnienia\Wyjatek\UncheckedException.class
