@@ -1,7 +1,7 @@
 package plcybertrainees.wyjasnienia;
 
 import java.util.List;
-//POJO
+//POJO---
 // Encja rowID
 //ValueObject 1 parametr, metoda getter
 // DTO -> Data Transfer Object
@@ -43,12 +43,15 @@ public class TalkDTO {
         return przyklady;
     }
 
-    public void modifyList(List<String>wiecejPrzykladow){
+    public void modifyList(List<String> wiecejPrzykladow) {
         this.przyklady.addAll(wiecejPrzykladow);
     }
 
     public void setPrzyklady(final List<String> przyklady) {
-        this.przyklady= przyklady;
+        this.przyklady = przyklady;
+    }
+
+    public void setOpis(final String s) {
     }
 }
   /*  public TalkDTO(

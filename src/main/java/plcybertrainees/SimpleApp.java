@@ -89,7 +89,8 @@ package plcybertrainees; // oreślenie pakietu wramach projektu, gdzie
 
 //region miejsce na importy
 
-import plcybertrainees.wyjasnienia.Obiekty;
+import plcybertrainees.wyjasnienia.bankomat.Bankomat;
+import plcybertrainees.wyjasnienia.bankomat.BankomatInterface;
 
 //Linia public class SimpleApp. Opisuje definicję klasy o nazwie SimpleApp.
 //modyfikator dostępu klasy public / private
@@ -131,11 +132,19 @@ public class SimpleApp {
         //Tablice tablice = new Tablice();
        // tablice.uruchom();
 
-       // Wyjatki wyjatki = new Wyjatki();
+        //Wyjatki wyjatki = new Wyjatki();
         //wyjatki.uruchom();
 
-        Obiekty obiekty=new Obiekty();
-        obiekty.uruchom();
+       // Obiekty obiekty=new Obiekty();
+       // obiekty.uruchom();
+
+
+        Bankomat bankomat=new Bankomat();
+        bankomat.opcjaDoWykonanja();
+        BankomatInterface bankomatInterface=new BankomatInterface();
+        bankomatInterface.uruchom();
+
+
 
 
        // Petle petle = new Petle();
