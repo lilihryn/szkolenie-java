@@ -26,7 +26,7 @@ public class BankomatInterface {
 
     }
 
-    void wyplataGotuwki() {
+    void wyplataGotuwki() throws StanKontaException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Podaj kwote do wyplaty");
         Double wyplata = scanner.nextDouble();

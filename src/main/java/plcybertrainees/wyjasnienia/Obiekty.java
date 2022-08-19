@@ -287,7 +287,7 @@ public class Obiekty {
 //    zadanie2();
 //    zadanie4();
 //zadanie5();
-ZwierzetaConverter zwierzetaConverter= new ZwierzetaConverter();
+//ZwierzetaConverter zwierzetaConverter= new ZwierzetaConverter();
  DateConverter dateConverter = new DateConverter();
 
   try {
@@ -295,5 +295,9 @@ ZwierzetaConverter zwierzetaConverter= new ZwierzetaConverter();
   } catch (ParseException e) {
     throw new RuntimeException(e);
   }
+    }
+
+    private void zadanie6(){
+
     }
 }
