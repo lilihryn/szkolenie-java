@@ -55,6 +55,10 @@
       <artifactId>spock-spring</artifactId>
       <version>${spock.version}</version>
     </dependency>
+      <dependency>
+          <groupId>org.junit.jupiter</groupId>
+          <artifactId>junit-jupiter-api</artifactId>
+      </dependency>
   </dependencies>
 
   <build>

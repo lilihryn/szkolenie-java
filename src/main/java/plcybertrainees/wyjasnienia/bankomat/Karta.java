@@ -11,12 +11,17 @@ public class Karta {
         this.saldo = saldo;
     }
 
-    public Integer getNrKarty() {
-        return nrKarty;
+    public Integer getNrKarty() {return nrKarty;
+    }
+
+    public Integer getPinKarty() {return pinKarty;
+    }
+
+    public Integer getSaldo() {return saldo;
     }
 
     public boolean sprawdzPin(final Integer pinKarty) {
-        if(!this.pinKarty.equals((pinKarty))){
+        if (!this.pinKarty.equals((pinKarty))) {
             throw new KartaException("Niepoprawny pin do karty");
 
         }
@@ -24,17 +29,17 @@ public class Karta {
     }
 
     public void wplacGotuwke(final Integer kwota) {
-        this.saldo+=kwota;
+        this.saldo += kwota;
     }
 
     public void sprawdzWyplate(final Integer kwota) {
-        if(this.saldo-kwota<0){
+        if (this.saldo - kwota < 0) {
             throw new KartaException("Nie wystarczająca ilość ");
         }
     }
 
     public void wyplacGotuwke(final Integer kwota) {
-        this.saldo-=kwota;
+        this.saldo -= kwota;
     }
 
     public Integer stanKonta() {
