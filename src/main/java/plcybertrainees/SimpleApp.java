@@ -134,7 +134,7 @@ public class SimpleApp {
         //Wyjatki wyjatki = new Wyjatki();
        // wyjatki.uruchom();
         BankomatService service= new BankomatService();
-        service.uruchom();
+        service.uruchomRozwiazanie2();
 
        // Petle petle = new Petle();
         //petle.urochom();

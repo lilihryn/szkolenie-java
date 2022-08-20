@@ -1,15 +1,13 @@
 package plcybertrainees.wyjasnienia.bankomat;
 
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class BankomatService {
     Scanner scanUser = new Scanner(System.in);
     Bankomat bankomat = new Bankomat();
 
 
-    private boolean menu(final Integer pozycja) {
+    private boolean menu(final Integer pozycja, final Karta karta) {
 
         Integer kwota = 0;
         try {
@@ -52,7 +50,8 @@ public class BankomatService {
     }
 
     public void uruchomRozwiazanie1() {
-        boolean czyKontynuowac;//ma wartosc poczatkowa
+        boolean czyKontynuowac;
+        Karta karta=null;
 
         do {
             System.out.println("Wybierz dostępną opcję:");
@@ -67,15 +66,16 @@ public class BankomatService {
             } catch (InputMismatchException e) {
                 throw new BusinessException("Nie podano prawidlowej liczby z menu");
             }
-            czyKontynuowac = menu2(userInfo);
+            czyKontynuowac = menu2(userInfo,karta);
 
         } while (czyKontynuowac);
 
     }
 
-    private boolean menu2(final Integer pozycja) {
+    private boolean menu2(final Integer pozycja, Karta karta) {
 
         Integer kwota = 0;
+
         try {
             switch (pozycja) {//Ctrl+. mozna zwinuc kod
                 case 1:
@@ -84,6 +84,7 @@ public class BankomatService {
                     kwota = scanUser.nextInt();
                     sprawdzWprowadzneKwoty(kwota);
                     bankomat.wplacGotuwke(kwota);
+                    karta.wplacGotuwke(kwota);
                     break;
                 case 2:
                     System.out.println("2. Wypłaćam Gotówkę");
@@ -91,11 +92,18 @@ public class BankomatService {
                     kwota = scanUser.nextInt();
                     sprawdzWprowadzneKwoty(kwota);
                     bankomat.sprawdzWyplate(kwota);
+                    karta.sprawdzWyplate(kwota);
                     bankomat.wyplacGotuwke(kwota);
+                    karta.wyplacGotuwke(kwota);
+
                     break;
                 case 3:
                     System.out.println("3. Sprawdźam stan konta");
                     System.out.println("Bankomat posiada:  " + bankomat.stanKonta());
+                    break;
+                case 4:
+                    System.out.println("4.Saldo  karty");
+                    System.out.println("Na karcie posiadasz:  " + karta.stanKonta());
                     break;
             }
         } catch (InputMismatchException e) {
@@ -113,6 +121,8 @@ public class BankomatService {
         boolean czyKontynuowac;//ma wartosc poczatkowa
         boolean czyPrawidlowaKarta=false;
         Karta karta=null;
+
+
         System.out.println("Wloz karte");
         Integer nrKarty= scanUser.nextInt();
         System.out.println("Podaj pin");
@@ -127,6 +137,17 @@ public class BankomatService {
         if(!czyPrawidlowaKarta||karta==null){
             throw new BusinessException("Wprowadzone bledne dane karty");
         }
+        //używanie stream- metody allMatch(czy wszystkie kody w liście zgadzają się w jakiś sposób
+        //karta=karty.stream().allMatch(karta1 -> instanceof Karta);
+
+        //filtrowanie z listy za kryteriem
+        //->wyrażenie lambda-obiekt wejszczowy(karta),może mieć różny typ dannych
+        //findAny,findFirst
+       // karta=karty.stream().filter(Objects::nonNull)
+       //         .filter(element->element.getNrKarty().equals(nrKarty))
+          //      .findFirst()
+        //.orElseThrow(()->{throw new BusinessException("Wprowadzone bledne dane do karty");});
+
 
         do {
             System.out.println("Wybierz dostępną opcję:");
@@ -142,7 +163,7 @@ public class BankomatService {
             } catch (InputMismatchException e) {
                 throw new BusinessException("Nie podano prawidlowej liczby z menu");
             }
-            czyKontynuowac = menu(userInfo);
+            czyKontynuowac = menu(userInfo, karta);
 
         } while (czyKontynuowac);
 

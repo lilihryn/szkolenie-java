@@ -22,4 +22,22 @@ public class Karta {
         }
         return false;
     }
+
+    public void wplacGotuwke(final Integer kwota) {
+        this.saldo+=kwota;
+    }
+
+    public void sprawdzWyplate(final Integer kwota) {
+        if(this.saldo-kwota<0){
+            throw new KartaException("Nie wystarczająca ilość ");
+        }
+    }
+
+    public void wyplacGotuwke(final Integer kwota) {
+        this.saldo-=kwota;
+    }
+
+    public Integer stanKonta() {
+        return this.saldo;
+    }
 }
