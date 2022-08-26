@@ -4,9 +4,14 @@ import java.util.*;
 
 public class BankomatService {
     Scanner scanUser = new Scanner(System.in);
-    Bankomat bankomat = new Bankomat();
+    private Bankomat bankomat;
+    public BankomatService(){
+        this.bankomat=new Bankomat();
+    }
 
-
+    public BankomatService(final Bankomat bankomat) {
+        this.bankomat = bankomat;
+    }
 
     private boolean menu(final Integer pozycja, final Karta karta) {
 
@@ -52,7 +57,7 @@ public class BankomatService {
 
     public void uruchomRozwiazanie1() {
         boolean czyKontynuowac;
-        Karta karta=null;
+        Karta karta = null;
 
         do {
             System.out.println("Wybierz dostępną opcję:");
@@ -67,7 +72,7 @@ public class BankomatService {
             } catch (InputMismatchException e) {
                 throw new BusinessException("Nie podano prawidlowej liczby z menu");
             }
-            czyKontynuowac = menu2(userInfo,karta);
+            czyKontynuowac = menu2(userInfo, karta);
 
         } while (czyKontynuowac);
 
@@ -86,7 +91,7 @@ public class BankomatService {
 //                    sprawdzWprowadzneKwoty(kwota);
 //                    bankomat.wplacGotuwke(kwota);
 //                    karta.wplacGotuwke(kwota);
-                    dokonajWplaty(kwota,karta);
+                    dokonajWplaty(kwota, karta);
                     break;
                 case 2:
                     System.out.println("2. Wypłaćam Gotówkę");
@@ -97,7 +102,7 @@ public class BankomatService {
 //                    karta.sprawdzWyplate(kwota);
 //                    bankomat.wyplacGotuwke(kwota);
 //                    karta.wyplacGotuwke(kwota);
-                    dokonajWyplaty(kwota,karta);
+                    dokonajWyplaty(kwota, karta);
 
                     break;
                 case 3:
@@ -122,22 +127,22 @@ public class BankomatService {
                 new Karta(12345678, 1234, 1000),
                 new Karta(33345678, 9876, 2000));
         boolean czyKontynuowac;//ma wartosc poczatkowa
-        boolean czyPrawidlowaKarta=false;
-        Karta karta=null;
+        boolean czyPrawidlowaKarta = false;
+        Karta karta = null;
 
 
         System.out.println("Wloz karte");
-        Integer nrKarty= scanUser.nextInt();
+        Integer nrKarty = scanUser.nextInt();
         System.out.println("Podaj pin");
-        Integer pinKarty= scanUser.nextInt();
-        for(Karta el: karty){
-            if(el.getNrKarty().equals(nrKarty)){
-                if(el.sprawdzPin(pinKarty));
-                czyPrawidlowaKarta=true;
-                karta=el;
+        Integer pinKarty = scanUser.nextInt();
+        for (Karta el : karty) {
+            if (el.getNrKarty().equals(nrKarty)) {
+                if (el.sprawdzPin(pinKarty)) ;
+                czyPrawidlowaKarta = true;
+                karta = el;
             }
         }
-        if(!czyPrawidlowaKarta||karta==null){
+        if (!czyPrawidlowaKarta || karta == null) {
             throw new BusinessException("Wprowadzone bledne dane karty");
         }
         //używanie stream- metody allMatch(czy wszystkie kody w liście zgadzają się w jakiś sposób
@@ -146,9 +151,9 @@ public class BankomatService {
         //filtrowanie z listy za kryteriem
         //->wyrażenie lambda-obiekt wejszczowy(karta),może mieć różny typ dannych
         //findAny,findFirst
-       // karta=karty.stream().filter(Objects::nonNull)
-       //         .filter(element->element.getNrKarty().equals(nrKarty))
-          //      .findFirst()
+        // karta=karty.stream().filter(Objects::nonNull)
+        //         .filter(element->element.getNrKarty().equals(nrKarty))
+        //      .findFirst()
         //.orElseThrow(()->{throw new BusinessException("Wprowadzone bledne dane do karty");});
 
 
@@ -171,7 +176,8 @@ public class BankomatService {
         } while (czyKontynuowac);
 
     }
-    private void dokonajWplaty(final Integer kwota, final Karta karta) {
+
+    private void dokonajWplaty(final Integer kwota, Karta karta) {
         sprawdzWprowadzneKwoty(kwota);
 
         bankomat.wplacGotuwke(kwota);
@@ -179,7 +185,7 @@ public class BankomatService {
 
     }
 
-    private void dokonajWyplaty(final Integer kwota,final Karta karta) {
+    private void dokonajWyplaty(final Integer kwota, Karta karta) {
         sprawdzWprowadzneKwoty(kwota);
         bankomat.sprawdzWyplate(kwota);
         karta.sprawdzWyplate(kwota);
