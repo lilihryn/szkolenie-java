@@ -7,6 +7,7 @@ public class BankomatService {
     Bankomat bankomat = new Bankomat();
 
 
+
     private boolean menu(final Integer pozycja, final Karta karta) {
 
         Integer kwota = 0;
@@ -82,19 +83,21 @@ public class BankomatService {
                     System.out.println("1. Wpłaćam Gotówkę");
                     System.out.println("Prosze podacz kwote wplaty:");
                     kwota = scanUser.nextInt();
-                    sprawdzWprowadzneKwoty(kwota);
-                    bankomat.wplacGotuwke(kwota);
-                    karta.wplacGotuwke(kwota);
+//                    sprawdzWprowadzneKwoty(kwota);
+//                    bankomat.wplacGotuwke(kwota);
+//                    karta.wplacGotuwke(kwota);
+                    dokonajWplaty(kwota,karta);
                     break;
                 case 2:
                     System.out.println("2. Wypłaćam Gotówkę");
                     System.out.println("Prosze podacz kwote wyplaty:");
                     kwota = scanUser.nextInt();
-                    sprawdzWprowadzneKwoty(kwota);
-                    bankomat.sprawdzWyplate(kwota);
-                    karta.sprawdzWyplate(kwota);
-                    bankomat.wyplacGotuwke(kwota);
-                    karta.wyplacGotuwke(kwota);
+//                    sprawdzWprowadzneKwoty(kwota);
+//                    bankomat.sprawdzWyplate(kwota);
+//                    karta.sprawdzWyplate(kwota);
+//                    bankomat.wyplacGotuwke(kwota);
+//                    karta.wyplacGotuwke(kwota);
+                    dokonajWyplaty(kwota,karta);
 
                     break;
                 case 3:
@@ -166,6 +169,22 @@ public class BankomatService {
             czyKontynuowac = menu(userInfo, karta);
 
         } while (czyKontynuowac);
+
+    }
+    private void dokonajWplaty(final Integer kwota, final Karta karta) {
+        sprawdzWprowadzneKwoty(kwota);
+
+        bankomat.wplacGotuwke(kwota);
+        karta.wplacGotuwke(kwota);
+
+    }
+
+    private void dokonajWyplaty(final Integer kwota,final Karta karta) {
+        sprawdzWprowadzneKwoty(kwota);
+        bankomat.sprawdzWyplate(kwota);
+        karta.sprawdzWyplate(kwota);
+        bankomat.wyplacGotuwke(kwota);
+        karta.wyplacGotuwke(kwota);
 
     }
 }
