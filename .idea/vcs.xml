@@ -2,7 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Нова папка/Framework" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Нова папка/SpringFrameWork" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Нова папка/SpringFrameworkProject" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Нова папка/szkolenie-java" vcs="Git" />
   </component>
 </project>
